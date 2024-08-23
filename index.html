@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortar Calculator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: rgb(164, 171, 171);">
+    <div class="container-fluid"> <br><br>
+        <div class="row">
+            <div class="col-lg-12" style="text-align: center;">
+                <div style="text-align: center;">
+                    <img class="img-fluid" src="data/gravel_cement_water.png" alt="cement-gravel">
+                </div>
+                <br>
+                <div class="AreaDimension">
+                    <h3>Concrete Mortar and Steel Calculator</h3>
+                    <p>Please provide the dimensions of the area you're intending to concrete in feet.</p>
+                </div>
+                    <form id="calculationForm">
+                        <label for="a">Width (ft)</label>&nbsp
+                        <input type="number" id="a" value=""> <p></p>   
+                        <label for="b">Length (ft)</label>
+                        <input type="number" id="b" value=""><p></p>
+                        <label for="c">Height (ft)</label>
+                        <input type="number" id="c" value=""><br><br>
+                        <button type="button" onclick="calculate()" class="submitbutton">Calculate </button> 
+                        <output id="result"></output>    
+                    </form>        
+               
+                <hr>
+
+                <div style="text-align: center;">
+                    <p>Enter the dry mortar volume in the below box</p>
+                    <input type="number" id="moratrVolume" placeholder= "Enter your dry mortar volume">
+                </div> <br>
+                
+                <p>Select your concrete Mark or Grade to determine how much Aggregate, Sand and Cement you'll need. </p>
+                <label for="">Concrete Mark</label>
+                <select  id="ConcreteMarks" onchange="mortarcalculator()">
+                    <option value="" disabled selected>Select Your Mark</option>
+                    <option id="M5">M5-1:5:10</option>
+                    <option id="M7">M7.5-1:4:8 </option>
+                    <option id="10">M10-1:3:6</option>
+                    <option id="15">M15-1:2:4</option>
+                    <option id="20">M20-1:1.5:3</option>
+                    <option id="25">M25-1:1:2</option>
+                </select> <br>
+            </div>
+            <p></p><p></p>
+            
+            <div class="mortarItems">
+                <p class="aggregateCementSand">Aggregate: <span id="aggregateResult"></span></p>
+                <p class="aggregateCementSand">Sand: <span id="sandResult"></span></p>
+                <p class="aggregateCementSand">Cement: <span id="cementResult"></span></p>
+                <p class="aggregateCementSand">Steel: <span id="steelResult"></span></p>
+            </div>      
+
+        </div>
+
+                        <div class="concreteMarkExplaination">
+                        
+                            <p style="text-align: left;"><span style="color:rgb(79, 79, 233); font-size:18px"><b>Notes:</b> </span>Concrete
+                                Grades or concrete Mark refers to the strength and composition
+                                of concrete, and the minimum strength it should have after 28 days of construction. The M in
+                                the Grade referes to "Mix" and the number indicates the concrete's strength in N/mm2 after 28 days.
+                                for instance, M10 mean the strength of concrete after 28 day is 10 Newtons/Square Millimeter or
+                                1,450 pounds per square inch (PSI). One Newton/mm&sup2 = One Megapascal </p>
+                        </div> <br>
+       
+    </div>
+    <p style="text-align: center; color: rgb(248, 247, 247); font-size: 15px;">Copyright &copy;
+        <script>document.write(new Date().getFullYear())</script> Abdullah Ameen
+    </p> <br><br>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+
+    
+</body>
+</html>

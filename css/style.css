@@ -1,0 +1,93 @@
+
+
+#ConcreteMarks{
+    text-align: center;
+    border: 1.5px solid rgb(1, 0, 0);
+    width: 155px;
+    height: 30px;
+    background-color: rgb(251, 248, 248);
+    border-radius: 2px;
+    font-size: 15px;
+     
+}
+
+.AreaDimension{
+    text-align: center;
+}
+
+output {
+    display: inline;
+}
+
+#moratrVolume{
+    width: 178px;
+    height: 28px;
+    margin-left: 80px;
+    border: 1.5px solid rgb(0, 0, 0);
+    border-radius: 3px;
+   
+
+}
+
+input,
+input::placeholder {
+    font-size: 12px;
+    padding: 0;
+    padding-left: 2px;
+}
+
+.aggregateCementSand{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+#aggregateResult{
+    color: rgb(36, 71, 245);
+    
+}
+#sandResult{
+    color: rgb(36, 71, 245);
+    
+}
+#cementResult {
+    color: rgb(36, 71, 245);
+    
+}
+
+.cementbag{
+    font-size: 11px;
+    color: #fbfbfa;
+}
+
+#steelResult{
+    color:rgb(36, 71, 245);
+}
+.mortarItems{
+
+    padding: 10px;
+}
+
+.concreteMarkExplaination{
+    border: 1px solid yellow;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11px;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 2.5px 2px;
+}
+.submitbutton{
+    width:80px;
+    background-color:rgb(58, 55, 55) ;
+    color: rgb(244, 245, 247);
+    border: 1px solid yellow;
+    padding: 3px;
+    border-radius: 5px;
+    
+}
+#result{
+    color: blue;
+    font-size: 16px;
+    
+}
