@@ -26,38 +26,38 @@ function mortarcalculator() {
         case 'M5-1:5:10':
             aggregateResult = ((volume)*(10/16)).toFixed(2) + ' ft³';
             sandResult = ((volume*(5/16))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/16)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/16))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
         case 'M7.5-1:4:8':
             aggregateResult = ((volume)*(8/13)).toFixed(2) + ' ft³';
             sandResult = ((volume*(4/13))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/13)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/13))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
         case 'M10-1:3:6':
             aggregateResult = ((volume)*(6/10)).toFixed(2) + ' ft³';
             sandResult = ((volume*(3/10))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/10)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/10))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
         case 'M15-1:2:4':
             aggregateResult = ((volume)*(4/7)).toFixed(2) + ' ft³';
             sandResult = ((volume*(2/7))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/7)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/7))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
         case 'M20-1:1.5:3':
             aggregateResult = ((volume)*(3/5.5)).toFixed(2) + ' ft³';
             sandResult = ((volume*(1.5/5.5))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/5.5)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/5.5))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
         case 'M25-1:1:2':
             aggregateResult = ((volume)*(2/4)).toFixed(2) + ' ft³';
             sandResult = ((volume*(1/4))).toFixed(2) + ' ft³';
-            cementResult = ((volume*(1/4)*(1.52))/1.2).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
-            steelResult = (((volume))*5).toFixed(2) + ' lb <span class="cementbag">(0.5% - 2%)</span>';
+            cementResult = ((volume*(1/4))/(1.25)).toFixed(2) + ' bags <span class="cementbag">(50 Kg)</span>';
+            steelResult = steelWeight(volume);
             break;
     }
     
@@ -65,6 +65,12 @@ function mortarcalculator() {
     document.getElementById("sandResult").innerHTML = sandResult;
     document.getElementById("cementResult").innerHTML = cementResult;
     document.getElementById("steelResult").innerHTML = steelResult;
+}
+
+function steelWeight(volume) {
+    const steelKg = (volume * 5.5) / 2.2;
+    const steelWithoutWaste = steelKg / 1.35;
+    return steelWithoutWaste.toFixed(2) + ' Kg';
 }
 
 // Clear results function
