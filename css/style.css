@@ -232,12 +232,16 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-align: center;
+    
+    box-shadow:2px 2px 3px rgba(0, 0, 0, 0.9);  
 }
 
 .btn-primary {
     background: #175168;
     color: white;
     width: auto;
+    text-align: center;
     
 }
 
@@ -313,8 +317,7 @@ body {
     height: 75px;
     object-fit: contain;
     display: block;
-    border-radius: 20px;
-    
+    border-radius: 5px;
 }
 
 .result-content {
@@ -507,7 +510,7 @@ input[type=number] {
 }
 
 .allignment{
-    width: 250px;
+    width: auto;
     text-align: center;
     item-align: center;
 }
@@ -520,5 +523,11 @@ input[type=number] {
 
 .icon1{
     width: 50px;
-    height: 40px;
+    height: 50px;
+    
+}
+
+.footer-text{
+    font-size: 15px;
+    
 }

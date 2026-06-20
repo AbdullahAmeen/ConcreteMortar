@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="data/all.min.css">
     <link rel="stylesheet" href="data/webfonts/fa-regular-400.woff2">
-    <title>Concrete Calculator - Professional Grade</title>
-    <meta property="og:image:type" content="contents/concretecalculator.PNG" />
+    <title>Concrete Materials Calculator - Professional Grade</title>
+    <meta property="og:image:type" content="data/materials.png" />
 </head>
 <body>
     <!-- Navigation Header -->
@@ -37,7 +37,7 @@
             <div class="card volume-card">
                 <div class="card-header">
                     <img src="data/calculator.png" alt="" class="icon">
-                    <h2>Calculate Volume</h2>
+                    <h2> Calculate Volume</h2>
                 </div>
                 <div class="card-body">
                     <p class="section-description">Enter the dimensions of your concrete area</p>
@@ -46,27 +46,27 @@
                             <div class="form-group">
                                 <label for="a">Width</label>
                                 <div class="input-group">
-                                    <input type="number" id="a" placeholder="0" step="0.1" min="0">
+                                    <input type="number" id="a" placeholder="e.g. 15" step="0.1" min="0">
                                     <span class="unit">ft</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="b">Length</label>
                                 <div class="input-group">
-                                    <input type="number" id="b" placeholder="0" step="0.1" min="0">
+                                    <input type="number" id="b" placeholder="e.g. 30" step="0.1" min="0">
                                     <span class="unit">ft</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="c">Height/Depth</label>
                                 <div class="input-group">
-                                    <input type="number" id="c" placeholder="0" step="0.1" min="0">
+                                    <input type="number" id="c" placeholder="e.g. 0.5" step="0.1" min="0">
                                     <span class="unit">ft</span>
                                 </div>
                             </div>
                         </div>
                         <button type="button" onclick="calculate()" class="btn btn-primary allignment">
-                            <i class="fas fa-calculator"></i> Calculate Volume
+                         &nbsp;Calculate Volume
                         </button>
                     </form>
                     <div id="result" class="result-box"></div>
@@ -77,7 +77,7 @@
             <div class="card mortar-card">
                 <div class="card-header">
                     <img src="data/mix.png" alt="" class="icon1">
-                    <h2>Concrete Mix Calculator</h2>
+                    <h3>Concrete Mix Calculator</h3>
                 </div>
                 <div class="card-body">
                     <p class="section-description">Calculate materials needed for your concrete mix</p>
@@ -85,13 +85,13 @@
                     <div class="input-section">
                         <label for="moratrVolume" class="label-title">Dry Mortar Volume</label>
                         <div class="input-group">
-                            <input type="number" id="moratrVolume" placeholder="Enter volume" step="0.1" min="0">
+                            <input type="number" id="moratrVolume" placeholder="Enter dry mortar volume" step="0.1" min="0">
                             <span class="unit">ft³</span>
                         </div>
                     </div>
 
                     <div class="input-section">
-                        <label for="ConcreteMarks" class="label-title">Concrete Grade</label>
+                        <label for="ConcreteMarks" class="label-title">Concrete Grade (Mark)</label>
                         <select id="ConcreteMarks" onchange="mortarcalculator()" class="select-grade">
                             <option value="" disabled selected>Select Concrete Grade</option>
                             <option value="M5-1:5:10">M5 - 1:5:10 (Weak)</option>
@@ -102,7 +102,18 @@
                             <option value="M25-1:1:2">M25 - 1:1:2 (Strong)</option>
                         </select>
                     </div>
+
+                    <div class="input-section">
+                        <label for="steelType" class="label-title">Structural Type</label>
+                        <select id="steelType" onchange="mortarcalculator()" class="select-grade">
+                            <option value="residential" selected>Residential Slab (×4)</option>
+                            <option value="footing">Footing (×6)</option>
+                            <option value="beam_column">Beam & Column (×8)</option>
+                            <option value="heavy">Heavily Reinforced (×12)</option>
+                        </select>
+                    </div>
                 </div>
+            
             </div>
 
             <!-- Results Section -->
@@ -164,6 +175,7 @@
                         <p>Concrete grades refer to the strength and composition of concrete, and the minimum strength it should have after 28 days of construction. The <strong>M</strong> in the grade refers to "<strong>Mix</strong>" and the number indicates the concrete's strength in <strong>N/mm²</strong> after 28 days.</p>
                         <p>For example, M10 means the strength of concrete after 28 days is 10 Newtons/Square Millimeter or 1,450 pounds per square inch (PSI).</p>
                         <p><em>1 Newton/mm² = 1 Megapascal (MPa)</em></p>
+                        <div style="text-align:center;"><a href="ConcreteMark.html"  target="_blank"><span style="color:rgb(10, 126, 235); font-size:15px;"> Learn More about Concrete Grades</span></a></div>
                     </div>
                 </div>
 
@@ -190,7 +202,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; <span id="year"></span> Abdullah Ameen | Concrete Calculator Pro</p>
+            <p class="footer-text">&copy; <span id="year"></span> Abdullah Ameen | Concrete Calculator Pro</p>
         </div>
     </footer>
 

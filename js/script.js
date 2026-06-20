@@ -68,9 +68,29 @@ function mortarcalculator() {
 }
 
 function steelWeight(volume) {
-    const steelKg = (volume * 5.5) / 2.2;
-    const steelWithoutWaste = steelKg / 1.35;
-    return steelWithoutWaste.toFixed(2) + ' Kg';
+    // Read selected steel type multiplier from the UI
+    const steelSelect = document.getElementById('steelType');
+    const type = steelSelect ? steelSelect.value : 'residential';
+
+    let multiplier = 4; // default: residential slab
+    switch (type) {
+        case 'residential':
+            multiplier = 4;
+            break;
+        case 'footing':
+            multiplier = 6;
+            break;
+        case 'beam_column':
+            multiplier = 8;
+            break;
+        case 'heavy':
+            multiplier = 12;
+            break;
+    }
+
+    // User requested: multiply the mortar volume by the selected multiplier
+    const steelEstimate = volume * multiplier;
+    return steelEstimate.toFixed(2) + ' Kg';
 }
 
 // Clear results function

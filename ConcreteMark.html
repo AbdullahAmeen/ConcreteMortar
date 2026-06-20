@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concrete Grades Reference</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body{
+        background: linear-gradient(135deg,#0f172a,#1e293b);
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:30px;
+        color:#fff;
+    }
+
+    .container{
+        width:100%;
+        max-width:1000px;
+        background:rgba(255,255,255,0.08);
+        backdrop-filter:blur(12px);
+        border:1px solid rgba(255,255,255,0.15);
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .header{
+        text-align:center;
+        padding:30px;
+        background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    }
+
+    .header h1{
+        font-size:2rem;
+        margin-bottom:10px;
+    }
+
+    .header p{
+        opacity:0.9;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+    }
+
+    thead{
+        background:#0f172a;
+    }
+
+    thead th{
+        padding:18px;
+        text-align:left;
+        font-size:15px;
+        letter-spacing:.5px;
+        text-transform:uppercase;
+    }
+
+    tbody tr{
+        transition:0.3s;
+        border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:hover{
+        background:rgba(37,99,235,0.18);
+    }
+
+    tbody td{
+        padding:16px 18px;
+    }
+
+    .grade{
+        font-weight:700;
+        color:#60a5fa;
+    }
+
+    .note{
+        padding:20px 25px;
+        background:rgba(15,23,42,0.7);
+        font-size:14px;
+        line-height:1.7;
+        color:#d1d5db;
+    }
+
+    @media(max-width:768px){
+        table{
+            font-size:14px;
+        }
+
+        .header h1{
+            font-size:1.6rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Concrete Grade Reference Guide</h1>
+        <p>Common Concrete Mix Ratios and Typical Compressive Strengths</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Mix Ratio (Cement : Sand : Aggregate)</th>
+                <th>Typical Strength (28 Days)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="grade">M5</td>
+                <td>1 : 5 : 10</td>
+                <td>5 MPa (725 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M7.5</td>
+                <td>1 : 4 : 8</td>
+                <td>7.5 MPa (1,090 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M10</td>
+                <td>1 : 3 : 6</td>
+                <td>10 MPa (1,450 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M15</td>
+                <td>1 : 2 : 4</td>
+                <td>15 MPa (2,175 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M20</td>
+                <td>1 : 1.5 : 3</td>
+                <td>20 MPa (2,900 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M25</td>
+                <td>1 : 1 : 2</td>
+                <td>25 MPa (3,625 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M30</td>
+                <td>1 : 0.75 : 1.5</td>
+                <td>30 MPa (4,350 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M35</td>
+                <td>1 : 0.65 : 1.3</td>
+                <td>35 MPa (5,075 psi)</td>
+            </tr>
+
+            <tr>
+                <td class="grade">M40</td>
+                <td>1 : 0.6 : 1.2</td>
+                <td>40 MPa (5,800 psi)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>Note:</strong> Mix ratios for M5–M20 are traditional nominal mixes.
+        M25 and above are generally produced using design mixes, and the ratios shown
+        here are approximate values commonly used for preliminary estimating and educational purposes.
+    </div>
+
+</div>
+
+</body>
+</html>
