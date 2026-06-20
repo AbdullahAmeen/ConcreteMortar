@@ -67,12 +67,14 @@ body {
     font-weight: 800;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
 }
 
 .hero-content p {
-    font-size: 20px;
-    opacity: 0.95;
+    font-size: 18px;
+    opacity: 1;
     font-weight: 300;
+    text-align: center;
 }
 
 /* Cards */
