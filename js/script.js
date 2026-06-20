@@ -81,7 +81,7 @@ function steelWeight(volume) {
             multiplier = 6;
             break;
         case 'beam_column':
-            multiplier = 8;
+            multiplier = 9;
             break;
         case 'heavy':
             multiplier = 12;
@@ -89,8 +89,9 @@ function steelWeight(volume) {
     }
 
     // User requested: multiply the mortar volume by the selected multiplier
-    const steelEstimate = volume * multiplier;
-    return steelEstimate.toFixed(2) + ' Kg';
+    const steelEstimatePounds = volume * multiplier;
+    const steelEstimateKg = steelEstimatePounds / 2.2;
+    return steelEstimateKg.toFixed(2) + ' Kg';
 }
 
 // Clear results function
