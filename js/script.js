@@ -68,30 +68,20 @@ function mortarcalculator() {
 }
 
 function steelWeight(volume) {
-    // Read selected steel type multiplier from the UI
     const steelSelect = document.getElementById('steelType');
     const type = steelSelect ? steelSelect.value : 'residential';
 
-    let multiplier = 4; // default: residential slab
+    // kg of steel per ft³ of concrete — derived from: steel% × 7850 kg/m³ ÷ 35.315 ft³/m³
+    // Footing: 0.5% → 1.11 | Slab: 1% → 2.22 | Beam/Col: 2% → 4.45 | Heavy: 3% → 6.67
+    let kgPerFt3;
     switch (type) {
-        case 'residential':
-            multiplier = 4;
-            break;
-        case 'footing':
-            multiplier = 6;
-            break;
-        case 'beam_column':
-            multiplier = 9;
-            break;
-        case 'heavy':
-            multiplier = 12;
-            break;
+        case 'residential':  kgPerFt3 = 2.22; break; // slab ~1% steel
+        case 'footing':      kgPerFt3 = 1.50; break; // footing ~0.67% steel
+        case 'beam_column':  kgPerFt3 = 4.45; break; // beam/col ~2% steel
+        case 'heavy':        kgPerFt3 = 6.67; break; // heavy structural ~3% steel
     }
 
-    // User requested: multiply the mortar volume by the selected multiplier
-    const steelEstimatePounds = volume * multiplier;
-    const steelEstimateKg = steelEstimatePounds / 2.2;
-    return steelEstimateKg.toFixed(2) + ' Kg';
+    return (volume * kgPerFt3).toFixed(2) + ' Kg';
 }
 
 // Clear results function

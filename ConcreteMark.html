@@ -92,6 +92,43 @@
         color:#d1d5db;
     }
 
+    .section-header{
+        padding:18px 25px;
+        background:linear-gradient(135deg,#04279c,#6d28d9);
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+
+    .section-header h2{
+        font-size:1.1rem;
+        font-weight:600;
+        letter-spacing:.3px;
+    }
+
+    .section-header p{
+        font-size:13px;
+        opacity:0.85;
+        margin-top:2px;
+    }
+
+    .steel-badge{
+        display:inline-block;
+        padding:3px 10px;
+        border-radius:20px;
+        font-size:13px;
+        font-weight:600;
+    }
+
+    .badge-slab    { background:rgba(37,99,235,0.25);  color:#93c5fd; }
+    .badge-footing { background:rgba(5,150,105,0.25);  color:#6ee7b7; }
+    .badge-beam    { background:rgba(217,119,6,0.25);  color:#fcd34d; }
+    .badge-heavy   { background:rgba(220,38,38,0.25);  color:#fca5a5; }
+
+    .pct{ color:#a78bfa; font-weight:700; }
+    .kg-val{ color:#34d399; font-weight:600; }
+    .lb-val{ color:#fb923c; font-weight:600; }
+
     @media(max-width:768px){
         table{
             font-size:14px;
@@ -179,10 +216,59 @@
         </tbody>
     </table>
 
-    <div class="note">
+    <div class="note" style="font-size: 16px;">
         <strong>Note:</strong> Mix ratios for M5–M20 are traditional nominal mixes.
         M25 and above are generally produced using design mixes, and the ratios shown
         here are approximate values commonly used for preliminary estimating and educational purposes.
+    </div>
+
+    <div class="section-header">
+        <div>
+            <h2>Steel Reinforcement Reference</h2>
+            <p>Thumb-rule estimates per ft³ of concrete &mdash; based on steel density 7,850 kg/m³</p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Structure Type</th>
+                <th>Steel %</th>
+                <th>Weight per ft³ (kg)</th>
+                <th>Weight per ft³ (lb)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="steel-badge badge-footing">Footing</span></td>
+                <td class="pct">0.67%</td>
+                <td class="kg-val">1.50 kg</td>
+                <td class="lb-val">3.31 lb</td>
+            </tr>
+            <tr>
+                <td><span class="steel-badge badge-slab">Residential Slab</span></td>
+                <td class="pct">1.00%</td>
+                <td class="kg-val">2.22 kg</td>
+                <td class="lb-val">4.89 lb</td>
+            </tr>
+            <tr>
+                <td><span class="steel-badge badge-beam">Beam / Column</span></td>
+                <td class="pct">2.00%</td>
+                <td class="kg-val">4.45 kg</td>
+                <td class="lb-val">9.81 lb</td>
+            </tr>
+            <tr>
+                <td><span class="steel-badge badge-heavy">Heavy Structural</span></td>
+                <td class="pct">3.00%</td>
+                <td class="kg-val">6.67 kg</td>
+                <td class="lb-val">14.71 lb</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note" style="font-size: 16px;">
+        <strong>Note:</strong> These are thumb-rule estimates for preliminary budgeting only.
+        Actual steel quantities must be determined by a structural engineer based on design loads, spans, and applicable building codes.
     </div>
 
 </div>
