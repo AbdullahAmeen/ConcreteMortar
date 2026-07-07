@@ -19,7 +19,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
-    height: 160px;
+    min-height: 160px;
     z-index: 100;
 }
 
@@ -27,22 +27,32 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .nav-brand {
-    font-size: 28px;
-    font-weight: 700;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 12px;
 }
 
+.nav-brand-text {
+    font-weight: 700;
+    font-size: clamp(18px, 5vw, 28px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .nav-subtitle {
-    font-size: 16px;
+    font-size: clamp(13px, 3.5vw, 16px);
     opacity: 0.9;
     margin-top: 5px;
     font-weight: 300;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Main Container */
@@ -465,6 +475,15 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 15px 0;
+        min-height: 0;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
     .hero-content h1 {
         font-size: 32px;
     }
