@@ -19,7 +19,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
-    height: 120px;
+    height: 160px;
     z-index: 100;
 }
 
@@ -314,6 +314,11 @@ body {
     flex-shrink: 0;
 }
 
+.water-icon {
+    font-size: 36px;
+    color: #2563eb;
+}
+
 .result-icon-img {
     width: 75px;
     height: 75px;
@@ -531,5 +536,89 @@ input[type=number] {
 
 .footer-text{
     font-size: 15px;
-    
+
+}
+
+/* Cost Inputs on Result Cards */
+.cost-input {
+    margin-top: 10px;
+}
+
+.cost-input input {
+    width: 100%;
+    max-width: 130px;
+    padding: 6px 10px;
+    border: 0.5px solid #222121;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+}
+
+.cementbag{
+    font-size: 13px;
+}
+.cost-input input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.cost-input input::placeholder {
+    color: #999;
+}
+
+/* Cost Summary Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-table thead th {
+    background: #172749;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.summary-table tbody tr:hover {
+    background: #f0f3ff;
+}
+
+.summary-table th:not(:first-child),
+.summary-table td:not(:first-child) {
+    text-align: right;
+}
+
+.summary-table tbody td:first-child {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.summary-total-row td {
+    font-weight: 700;
+    color: #2c3e50;
+    border-top: 2px solid #172749;
+    border-bottom: none;
+    font-size: 16px;
+}
+
+.summary-empty {
+    text-align: center !important;
+    color: #4e4949;
+    padding: 15px 15px !important;
 }

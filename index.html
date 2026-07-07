@@ -14,9 +14,8 @@
     <!-- Navigation Header -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-            
-                <span style="font-weight: bold; font-size: 1.1em;">Concrete Calculator</span>
+            <div class="nav-brand" style="text-align: center;">
+                <span style="font-weight: bold; font-size: 1.2em;">Construction Materials & Cost Estimator</span>
             </div>
             <p class="nav-subtitle">Professional Concrete & Mortar Calculator</p>
         </div>
@@ -81,16 +80,25 @@
                 </div>
                 <div class="card-body">
                     <p class="section-description">Calculate materials needed for your concrete mix</p>
-                    
+
                     <div class="input-section">
-                        <label for="moratrVolume" class="label-title">Dry Mortar Volume</label>
+                        <label for="workType" class="label-title">Type of Work</label>
+                        <select id="workType" onchange="handleWorkTypeChange()" class="select-grade">
+                            <option value="rcc" selected>Reinforced Concrete (RCC)</option>
+                            <option value="brick">Brick Masonry</option>
+                            <option value="stone">Stone Masonry</option>
+                        </select>
+                    </div>
+
+                    <div class="input-section">
+                        <label for="moratrVolume" class="label-title" id="volumeLabel">Dry Mortar Volume</label>
                         <div class="input-group">
-                            <input type="number" id="moratrVolume" placeholder="Enter dry mortar volume" step="0.1" min="0">
+                            <input type="number" id="moratrVolume" placeholder="Enter volume" step="0.1" min="0" oninput="mortarcalculator()">
                             <span class="unit">ft³</span>
                         </div>
                     </div>
 
-                    <div class="input-section">
+                    <div class="input-section" id="concreteGradeSection">
                         <label for="ConcreteMarks" class="label-title">Concrete Grade (Mark)</label>
                         <select id="ConcreteMarks" onchange="mortarcalculator()" class="select-grade">
                             <option value="" disabled selected>Select Concrete Grade</option>
@@ -103,7 +111,7 @@
                         </select>
                     </div>
 
-                    <div class="input-section">
+                    <div class="input-section" id="structuralTypeSection">
                         <label for="steelType" class="label-title">Structural Type</label>
                         <select id="steelType" onchange="mortarcalculator()" class="select-grade">
                             <option value="residential" selected>Residential Slab</option>
@@ -112,8 +120,18 @@
                             <option value="heavy">Heavily Reinforced</option>
                         </select>
                     </div>
+
+                    <div class="input-section" id="masonryRatioSection" style="display:none;">
+                        <label for="masonryRatio" class="label-title">Mortar Ratio (Cement : Sand)</label>
+                        <select id="masonryRatio" onchange="mortarcalculator()" class="select-grade">
+                            <option value="1:3">1:3 (Rich)</option>
+                            <option value="1:4">1:4</option>
+                            <option value="1:6" selected>1:6 (Standard)</option>
+                            <option value="1:8">1:8 (Lean)</option>
+                        </select>
+                    </div>
                 </div>
-            
+
             </div>
 
             <!-- Results Section -->
@@ -123,43 +141,122 @@
                     <h2>Required Materials</h2>
                 </div>
                 <div class="card-body">
+                    <p class="section-description">Enter a unit cost below each material to include it in the cost summary</p>
                     <div class="results-grid">
-                        <div class="result-item">
+                        <div class="result-item" id="aggregateItem">
                             <div class="result-icon aggregate-icon">
                                 <img src="assets/icons/aggregate.png" alt="Aggregate" class="result-icon-img">
                             </div>
                             <div class="result-content">
                                 <p class="result-label">Aggregate</p>
                                 <p class="result-value" id="aggregateResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="aggregateCost" placeholder="Cost / ft³" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
                             </div>
                         </div>
-                        <div class="result-item">
+                        <div class="result-item" id="sandItem">
                             <div class="result-icon sand-icon">
                                 <img src="assets/icons/sand.png" alt="Sand" class="result-icon-img">
                             </div>
                             <div class="result-content">
                                 <p class="result-label">Sand</p>
                                 <p class="result-value" id="sandResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="sandCost" placeholder="Cost / ft³" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
                             </div>
                         </div>
-                        <div class="result-item">
+                        <div class="result-item" id="cementItem">
                             <div class="result-icon cement-icon">
                                 <img src="assets/icons/cement.png" alt="Cement" class="result-icon-img">
                             </div>
                             <div class="result-content">
                                 <p class="result-label">Cement</p>
                                 <p class="result-value" id="cementResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="cementCost" placeholder="Cost / bag" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
                             </div>
                         </div>
-                        <div class="result-item">
+                        <div class="result-item" id="steelItem">
                             <div class="result-icon steel-icon">
                                 <img src="assets/icons/steel.png" alt="Steel" class="result-icon-img">
                             </div>
                             <div class="result-content">
                                 <p class="result-label">Steel</p>
                                 <p class="result-value" id="steelResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="steelCost" placeholder="Cost / Kg" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
                             </div>
                         </div>
+                        <div class="result-item" id="bricksItem" style="display:none;">
+                            <div class="result-icon bricks-icon">
+                                <img src="data/Bricks.png" alt=""  class="result-icon-img">
+                            </div>
+                            <div class="result-content">
+                                <p class="result-label">Bricks</p>
+                                <p class="result-value" id="bricksResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="bricksCost" placeholder="Cost / brick" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-item" id="stoneItem" style="display:none;">
+                            <div class="result-icon stone-icon">
+                                <img src="data/stone.png" alt=""  class="result-icon-img">
+
+                            </div>
+                            <div class="result-content">
+                                <p class="result-label">Stone</p>
+                                <p class="result-value" id="stoneResult">-</p>
+                                <div class="cost-input">
+                                    <input type="number" id="stoneCost" placeholder="Cost / ft³" min="0" step="0.01" oninput="updateSummary()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-item" id="waterItem">
+                            <div class="result-icon water-icon" >
+                                <img src="data/water.png" alt="Water" class="result-icon-img" style="font-size: 12px;">
+                            </div>
+                            <div class="result-content">
+                                <p class="result-label">Water</p>
+                                <p class="result-value" id="waterResult">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost Summary Section -->
+            <div class="card summary-card">
+                <div class="card-header">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h2>Cost Estimate Summary</h2>
+                </div>
+                <div class="card-body">
+                    <p class="section-description">Fill in the unit costs above to see the total estimated cost</p>
+                    <div class="table-responsive">
+                        <table class="summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Material</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Cost</th>
+                                    <th>Total Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody id="summaryTableBody">
+                                <tr><td colspan="4" class="summary-empty">Enter dimensions above to see the cost breakdown</td></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="summary-total-row">
+                                    <td colspan="3">Grand Total</td>
+                                    <td id="grandTotal">0.00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
